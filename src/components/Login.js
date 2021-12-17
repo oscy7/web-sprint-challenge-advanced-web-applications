@@ -18,7 +18,7 @@ const Login = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('click works')
+        //This allows us to login with the right credentials on submit. 
         axios.post('http://localhost:5001/api/login', cred)
             .then(res => {
                 localStorage.setItem('token', res.data.token);

@@ -14,8 +14,8 @@ const View = (props) => {
 
     const { push } = useHistory();
 
+    //This here with the allows us to delete so long as user is logged in and verified via the token. 
     const handleDelete = (id) => {
-        //e.preventDefault();
         axiosWithAuth()
             .delete(`/articles/${id}`)
             .then(res => {
@@ -27,6 +27,14 @@ const View = (props) => {
     }
 
     const handleEdit = (article) => {
+        axiosWithAuth()
+            .put(`/articles/${editId}`)
+            .then( res => {
+                setArticles(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
         push(`/articles/${article}`)
     }
 
@@ -43,9 +51,7 @@ const View = (props) => {
         axiosWithAuth()
             .get('/articles')
             .then(res => {
-                console.log('This is articles', res)
-                setArticles(res.data)
-                console.log('This is articles', res)
+                setArticles(res.data)  
             })
             .catch(err =>{
                 console.log(err)

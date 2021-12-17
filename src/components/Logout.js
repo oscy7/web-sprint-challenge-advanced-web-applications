@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 const Logout = (props) => {        
     const { push } = useHistory();
-
+    //This useEffect allows us to logout when mounted. Redirects us to /login.
     useEffect(()=> {
         axiosWithAuth()
             .post('/logout')
