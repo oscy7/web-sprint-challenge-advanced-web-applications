@@ -28,13 +28,6 @@ const View = (props) => {
     }
 
     const handleEdit = (article) => {
-        axios.put(`http://localhost:5001/articles/${article}`)
-            .then(res => {
-                console.log(res)
-            })
-            .catch(err => {
-                console.log(err)
-            })
         push(`/articles/${article}`)
     }
 

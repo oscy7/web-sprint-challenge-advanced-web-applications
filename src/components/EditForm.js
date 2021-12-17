@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-
+import axios from 'axios';
 const initialArticle = {
     id:"",
     headline: "",
@@ -12,6 +12,18 @@ const initialArticle = {
 const EditForm = (props)=> {
     const [article, setArticle]  = useState(initialArticle);
     const {handleEdit, handleEditCancel, editId} = props;
+
+    useEffect(() => {
+        axios.put(`http://localhost:5001/articles/${editId}`)
+            .then(res => {
+                console.log(res)
+                setArticle(article)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    })
+    
 
     const handleChange = (e)=> {
         setArticle({
