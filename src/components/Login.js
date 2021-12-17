@@ -1,28 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios'
 
-const Login = () => {
+const Login = (props) => {
     const [cred, setCred] = useState({
         username: '',
         password: ''
     })
-    const { push } = useHistory(); 
-
     const handleChange = (e) => {
         setCred({
             ...cred,
             [e.target.name]: e.target.value
         })
     }
+
+    const { push } = useHistory(); 
+
     console.log('this is cred',cred)
     
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('click works')
-        axios.post('http://localhost:5000/api/login', cred)
+        axios.post('http://localhost:5001/api/login', cred)
             .then(res => {
                 console.log(res);
-                localStorage.setItem('token', res.data);
+                localStorage.setItem('token', res.data.token);
                 push('/view');
             })
             .catch(err => {

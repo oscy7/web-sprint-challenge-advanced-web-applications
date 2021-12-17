@@ -6,6 +6,10 @@ import Header from './Header';
 import BloomHeader from './BloomHeader';
 import Login from './Login';
 
+import View from './View'
+import Logout from './Logout'
+import PrivateRoute from './PrivateRoute';
+
 const App = () => {
   return (
     <AppContainer>

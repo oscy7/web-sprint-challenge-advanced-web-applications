@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import axios from 'axios'
+import axiosWithAuth from './../utils/axiosWithAuth'
 
 import Article from './Article';
 import EditForm from './EditForm';
@@ -23,6 +25,52 @@ const View = (props) => {
     const handleEditCancel = ()=>{
         setEditing(false);
     }
+
+    useEffect(() => {
+        axiosWithAuth()
+            .get('/articles')
+            .then(res => {
+                console.log('This is articles', res)
+                setArticles(res.data)
+                // this.setArticles({
+                //     articles: res.data
+                // })
+                console.log('This is articles', res)
+            })
+            .catch(err =>{
+                console.log(err)
+            })
+    }, [])
+    //const token = localStorage.getItem('token')
+    // componentDidMount() {
+    //     const token = localStorage.getItem("token");
+    
+    //     axiosWithAuth()
+    //       .get('/view')
+    //       .then(res=> {
+    //         this.setArticles({
+    //           articles: res.data
+    //         });
+    //       })
+    //       .catch(err=> {
+    //         console.log(err);
+    //       })
+    //   }
+
+    // useEffect(() => {
+    //     axios.get('http://localhost:5001/api/articles', {
+    //         header: {
+    //             authorization: token
+    //         }
+    //     })
+    //     .then(res => {
+    //         console.log(res)
+    //         setArticles(res.data)
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
+    // }, [])
 
     return(<ComponentContainer>
         <HeaderContainer>View Articles</HeaderContainer>
