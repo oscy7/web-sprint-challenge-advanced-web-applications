@@ -120,9 +120,21 @@ In this project, you will demonstrate your mastery of these skills by creating *
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers below.
 
 1. Explain what a token is used for.
+A token is used to represent the right to do something. After submitting credentials - a person is given a token that allows one to view and do certain things on an application like add or delete or edit things - all with a token.
 
 2. What steps can you take in your web apps to keep your data secure?
+I would first create a login with credentials that gives a token that gives authorization to do certain things. After that I would add private routes. 
+Implementing Private Routes is important. This makes it so no one without authorization can have access to certain pages or components. These Routes only render when a token is given after entering the right credentials. 
+After that I would also add a logout that deletes that token so that no one else can access things they are not authorized to.
 
 3. Describe how web servers work.
 
+A web server is a computer that stores code for a website and/or a program that runs on a computer. We can descrie a webserver as a physical computer that is connected to the internet that stores data and code for many websites. This data and code is accessed when a client requests data from the sever so that it can output that information on a computer screen somewhere in the world. 
+This process starts with the user requesting information from a webserver. The server gives the data back so that the user's computer can render the code and information on the screen. AWS is an example of a webserver that interacts with many people's computer so that they are able to use the web.
+
 4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+C - Create (Post) - creates a new resource
+R - Read (Get) - retrieves data
+U - Update (Put) - Patches or edits data
+D - Delete (delete) - Erases data
