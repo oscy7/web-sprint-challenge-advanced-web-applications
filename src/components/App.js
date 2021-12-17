@@ -14,7 +14,12 @@ const App = () => {
       <RouteContainer>
         <Route exact path="/">
           <Login/>
-        </Route>          
+        </Route>  
+        <Route exact path="/login">
+          <Login/>
+        </Route>    
+        <PrivateRoute exact path= '/view' component={View} /> 
+        <PrivateRoute exact path= '/logout' component={Logout}/>          
       </RouteContainer>
     </AppContainer>
   )
@@ -23,10 +28,10 @@ const App = () => {
 export default App;
 
 //Task List
-//1. Create and import PrivateRoute component.
-//2. Create a Route for Login pointing to '/login.'
-//3. Create a PrivateRoute for View component point to '/view.'
-//4. Create a PrivateRoute for Logout component pointing to '/logout.'
+//1. Create and import PrivateRoute component. done
+//2. Create a Route for Login pointing to '/login.' done
+//3. Create a PrivateRoute for View component point to '/view.'done
+//4. Create a PrivateRoute for Logout component pointing to '/logout.'done
 
 
 const AppContainer = styled.div`
