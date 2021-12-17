@@ -14,7 +14,9 @@ const Logout = (props) => {
                 console.log(err)
             });
     }, []);
-    return(<div></div>);
+    return(<div>
+        <p>You are Logged Out</p>
+    </div>);
 }
 
 export default Logout;
