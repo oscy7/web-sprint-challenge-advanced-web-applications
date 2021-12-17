@@ -15,17 +15,17 @@ test("renders three articles without errors", async ()=> {
         author:'test1',
         summary:'test1',
         body:'test1'},
-        {headline:'test1',
-        author:'test1',
-        summary:'test1',
-        body:'test1'},
-        {headline:'test1',
-        author:'test1',
-        summary:'test1',
-        body:'test1'}
+        {headline:'test2',
+        author:'test2',
+        summary:'test2',
+        body:'test2'},
+        {headline:'test3',
+        author:'test3',
+        summary:'test3',
+        body:'test3'}
     } />)
     const articles = screen.queryAllByTestId('article');
-    expect(articles).toHaveLength(0);
+    expect(articles).toHaveLength(3);
 })
 
 //Task List

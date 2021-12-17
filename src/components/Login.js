@@ -14,17 +14,13 @@ const Login = (props) => {
             [e.target.name]: e.target.value
         })
     }
-
     const { push } = useHistory(); 
 
-    console.log('this is cred',cred)
-    
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('click works')
         axios.post('http://localhost:5001/api/login', cred)
             .then(res => {
-                console.log(res);
                 localStorage.setItem('token', res.data.token);
                 push('/view');
             })
@@ -32,6 +28,7 @@ const Login = (props) => {
                 console.log(err)
             })
     }
+
     return(
     <ComponentContainer>
         <ModalContainer>

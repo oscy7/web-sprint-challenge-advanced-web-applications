@@ -7,11 +7,12 @@ import MutationObserver from 'mutationobserver-shim';
 import Article from './Article';
 import { render } from 'react-dom';
 
-// test('renders component without errors', ()=> {
+//  test('renders component without errors', ()=> {
 //     render(<Article/>)
 // });
 
 // test('renders headline, author from the article when passed in through props', ()=> {
+//     render(<Article header={header}/>)
 // });
 
 // test('renders "Associated Press" when no author is given', ()=> {

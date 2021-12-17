@@ -16,7 +16,6 @@ const EditForm = (props)=> {
     useEffect(() => {
         axios.put(`http://localhost:5001/articles/${editId}`)
             .then(res => {
-                console.log(res)
                 setArticle(article)
             })
             .catch(err => {

@@ -19,7 +19,6 @@ const View = (props) => {
         axiosWithAuth()
             .delete(`/articles/${id}`)
             .then(res => {
-                console.log(res)
                 setArticles(res.data)
             })
             .catch(res => {
