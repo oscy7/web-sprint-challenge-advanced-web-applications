@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Header from './Header';
 import BloomHeader from './BloomHeader';
 import Login from './Login';
-//import { BrowserRouter as Router, Route, Redirect, Link} from 'react-router-dom';
+
 
 import View from './View'
 import Logout from './Logout'
