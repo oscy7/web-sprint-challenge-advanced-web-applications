@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Article from './Article';
@@ -9,10 +10,40 @@ const View = (props) => {
     const [editing, setEditing] = useState(false);
     const [editId, setEditId] = useState();
 
+
+    const token = localStorage.getItem('token')
+
+    useEffect(() => {
+        axios.get('http://localhost:5000/api/articles', {
+            header: {
+                authorization: token
+            }
+        })
+        .then(res => {
+            console.log(res)
+            setArticles(res.data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }, [])
     const handleDelete = (id) => {
+        setEditId(articles.filter(item => (
+            item.id!== Number(id)
+        )))
     }
 
     const handleEdit = (article) => {
+        e.preventDefault();
+        axios.put(`http://localhost:5000/articles/${id}`, article)
+          .then(res=> {
+            console.log(res)
+            setArticles(res.data);
+
+          })
+          .catch(err=>{
+            console.log(err);
+          })
     }
 
     const handleEditSelect = (id)=> {

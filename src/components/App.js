@@ -5,6 +5,12 @@ import styled from 'styled-components';
 import Header from './Header';
 import BloomHeader from './BloomHeader';
 import Login from './Login';
+//import { BrowserRouter as Router, Route, Redirect, Link} from 'react-router-dom';
+
+import View from './View'
+import Logout from './Logout'
+import PrivateRoute from './PrivateRoute';
+
 
 const App = () => {
   return (
@@ -14,7 +20,12 @@ const App = () => {
       <RouteContainer>
         <Route exact path="/">
           <Login/>
-        </Route>          
+        </Route> 
+        <Route exact path="/login">
+          <Login/>
+        </Route>    
+        <PrivateRoute exact path= '/view' component={View} /> 
+        <PrivateRoute exact path= '/logout' component={Logout}/>   
       </RouteContainer>
     </AppContainer>
   )
