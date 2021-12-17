@@ -12,6 +12,16 @@ const View = (props) => {
     const [editId, setEditId] = useState();
 
     const handleDelete = (id) => {
+        //e.preventDefault();
+        axiosWithAuth()
+            .delete(`/articles/${id}`)
+            .then(res => {
+                console.log(res)
+                setArticles(res.data)
+            })
+            .catch(res => {
+                console.log(res)
+            })
     }
 
     const handleEdit = (article) => {
@@ -32,45 +42,12 @@ const View = (props) => {
             .then(res => {
                 console.log('This is articles', res)
                 setArticles(res.data)
-                // this.setArticles({
-                //     articles: res.data
-                // })
                 console.log('This is articles', res)
             })
             .catch(err =>{
                 console.log(err)
             })
     }, [])
-    //const token = localStorage.getItem('token')
-    // componentDidMount() {
-    //     const token = localStorage.getItem("token");
-    
-    //     axiosWithAuth()
-    //       .get('/view')
-    //       .then(res=> {
-    //         this.setArticles({
-    //           articles: res.data
-    //         });
-    //       })
-    //       .catch(err=> {
-    //         console.log(err);
-    //       })
-    //   }
-
-    // useEffect(() => {
-    //     axios.get('http://localhost:5001/api/articles', {
-    //         header: {
-    //             authorization: token
-    //         }
-    //     })
-    //     .then(res => {
-    //         console.log(res)
-    //         setArticles(res.data)
-    //     })
-    //     .catch(err => {
-    //         console.log(err)
-    //     })
-    // }, [])
 
     return(<ComponentContainer>
         <HeaderContainer>View Articles</HeaderContainer>
